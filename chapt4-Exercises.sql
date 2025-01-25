@@ -41,3 +41,12 @@ SELECT DISTINCT v1.VendorID, v1.VendorName,(v1.VendorContactFName + ' ' + v1.Ven
   FROM Vendors v1
   JOIN Vendors v2 ON v1.VendorID <> v2.VendorID AND v1.VendorContactFName = v2.VendorContactFName
   ORDER BY Name;
+
+-- EXERCISE 7 - return 2 columns from GLAccounts wit;h 1 row for each account # never used - sort by AccountNo
+SELECT gl.AccountNo, AccountDescription
+  From GLAccounts GL
+  LEFT JOIN InvoiceLineItems LI ON gl.AccountNo = LI.AccountNo
+  Where li.AccountNo is NULL
+  ORDER BY gl.AccountNo;
+
+ 
